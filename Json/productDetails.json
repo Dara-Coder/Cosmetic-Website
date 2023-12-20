@@ -3,7 +3,7 @@
         "id":"1",
         "image_list": [
             "/Images/Dior/a1.jpg",
-            "/Images/Dior/a11.png",
+            "/Images/Dior/a1.jpg",
             "/Images/Dior/m2.png"
         ],
         "title":"3CE Professional Makeup",
@@ -14,45 +14,391 @@
     {
         "id":"2",
         "image_list": [
-            "/Images/Dior/s2.png",
-            "/Images/3CE/m51.png"
+            "/Images/Dior/b4.png"
         ],
-        "title":"3CE Professional Makeup",
+        "title":"Diorshow Brow Styler",
         "descriptions":"It claims to be a product that helps in oil-water balance , that helps achieve a clear milky radiant skin with zero tightness and sooth sunburns.Also restore skin and dead cells",
-        "price":"366$",
-        "relate":"skincare"
+        "price":"$14.45",
+        "relate":"eyeshadow"
     },
     {
         "id":"3",
         "image_list": [
-            "/Images/3CE/m5.png",
-            "/Images/3CE/m7.png"
+            "/Images/Dior/c1.png"
         ],
-        "title":"Capture Youth",
-        "descriptions":"No more framed, Dior new take",
-        "price":"$366",
-        "relate":"skincare"
+        "title":"Dior Forever Natural Nude Foundation",
+        "descriptions":"Fresh and lightweight, the texture of Dior Forever Natural Nude foundation achieves a natural and luminous finish with no mask-like effect, allowing the skin to breathe from morning to night. The complexion is flawlessly even for 24 hours non-stop. * The skin is hydrated*** and radiant, as if plumped.",
+        "price":"$16",
+        "relate":"foundation"
     },
     {
         "id":"4",
         "image_list": [
-            "/Images/Mac/m4.png",
-            "/Images/Mac/s3.png"
+            "/Images/Dior/d1.png"
         ],
-        "title":"WATER COATING",
-        "descriptions":"Cool, pure, and clean light pink that catches the eye Clear and refreshing colors in a lightweight, dewy texture.",
-        "price":"$366",
-        "relate":"skincare"
+        "title":"Capture Youth Age-delay advanced creme",
+        "descriptions":". Concentrated in iris extract, this cream boosts the antioxidant power of the skin to defy visible signs of aging. A natural-origin plant mesh instantly helps to smooth, retexturize and strengthen the skin's surface.",
+        "price":"$36",
+        "relate":"cream"
     },
     {
         "id":"5",
         "image_list": [
-            "/Images/Sk/s16.png",
+            "/Images/Dior/e1.png"
+        ],
+        "title":"DIOR Backstage Eyeshadow Palette",
+        "descriptions":"An all-in-one eyeshadow and primer palette with one primer and eight blendable shades in matte and shimmer finishes. What Else You Need to Know: These all-in-one eye palettes have everything you need to prime, shade, and highlight for runway-ready eyes.r",
+        "price":"$15.45",
+        "relate":"eyeshadow"
+    },
+    {
+        "id":"6",
+        "image_list": [
+            "/Images/Dior/f4.png"
+        ],
+        "title":"Dior Prestige La Micro-Huile de Rose Advanced Serum",
+        "descriptions":"The formula combines Rose de Granville flower and sap extracts and their 23 revitalizing micro-nutrients to help correct visible signs of aging. From the first application, filled with intense and deep nourishment, the skin is visibly plumped and seems replenished. In just 1 week, it appears firmer.",
+        "price":"$66",
+        "relate":"serum"
+    },
+    {
+        "id":"7",
+        "image_list": [
+            "/Images/Dior/m2.png"
+        ],
+        "title":"La Mousse OFF/ON Foaming Cleanser",
+        "descriptions":"Its formula, composed of 90%* natural-origin ingredients, contains a double soap that targets a wide range of impurities. Its creamy and dense texture transforms into an airy and rich foam upon contact with the skin. After rinsing, the skin appears perfectly cleansed, pure and comfortable.",
+        "price":"$46.45",
+        "relate":"foam"
+    },
+    {
+        "id":"8",
+        "image_list": [
+            "/Images/Dior/s2.png"
+        ],
+        "title":"Hydrating creme, age-defying creme",
+        "descriptions":"Discover the Dior moisturizer that meets the needs of your skin. Age-defying creme, hydrating creme for oily skin, combination skin or reactive skin.",
+        "price":"$36",
+        "relate":"skincare"
+    },
+    {
+        "id":"9",
+        "image_list": [
+            "/Images/Dior/a11.png"
+        ],
+        "title":"Rosy Glow blush ",
+        "descriptions":"The iconic Rosy Glow blush is reinvented in a clean formula that blends seamlessly with the skin to flush the cheeks with an immediate healthy glow effect. Thanks to colour reviver technology, this powder blush reacts upon application with the skin's pH and moisture level for long-wearing ",
+        "price":"$36",
+        "relate":"blush"
+    },
+    {
+        "id":"10",
+        "image_list": [
+            "/Images/Dior/ba5.png"
+        ],
+        "title":"Miss Dior",
+        "descriptions":"It is embroidered with fresh Lily-of-the-Valley notes, an apricot-tinged Peony accord, and powdery Iris notes. Miss Dior is thus built around an elegant, striking bouquet—like a “millefiori” that seems to carry countless flowers in endless colours. At the base, slight notes of tender wood envelop the composition.",
+        "price":"$100.45",
+        "relate":"perfume"
+    },
+    {
+        "id":"11",
+        "image_list": [
+            "/Images/3CE/m48.png"
+        ],
+        "title":"3CE Bare Cover Cushion",
+        "descriptions":"Bare cover cushion sets thinly onto the skin like real skin and it shines naturally. It gives a natural bare glow finish like an innate glow. It sets in nicely like a primer with light and thin coverage. This non-irritating cushion gives comfort to the skin.",
+        "price":"$18",
+        "relate":"cushion"
+    },
+    {
+        "id":"12",
+        "image_list": [
+            "/Images/3CE/m3.png"
+        ],
+        "title":"3CE Face Blush",
+        "descriptions":"With a soft touch and excellent blendability, the silky sliding texture naturally tinges your cheeks with colour. Sebum-controlling powders absorb sweet and sebum, allowing product to blend without clumping, imparting seamless colour that lasts all day long.",
+        "price":"$15",
+        "relate":"blush"
+    },
+    {
+        "id":"13",
+        "image_list": [
+            "/Images/3CE/m44.png"
+        ],
+        "title":"3CE Back To Baby BB Cream",
+        "descriptions":"3CE Back To Baby BB Cream is a beauty balm cream that provides your skin with sun protection and coverage effortlessly. This 3CE BB Cream contains crystal water, diamond powder and pearl powder, that provides your skin with a healthy-looking glow naturally.",
+        "price":"$20.45",
+        "relate":"foundation"
+    },
+    {
+        "id":"14",
+        "image_list": [
+            "/Images/3CE/m51.png"
+        ],
+        "title":"3CE - Super Slim Waterproof Mascara",
+        "descriptions":"This Super Slim Waterproof Mascara brings up every strand of eyelash and fixes curls for long hours. The waterproof formula highly resistant to water and oil keeps the makeup from smuging. Helps to create defined and clear eyelashes.",
+        "price":"$12.00",
+        "relate":"mascara"
+    },
+    {
+        "id":"15",
+        "image_list": [
+            "/Images/3CE/m2.png"
+        ],
+        "title":"3CE Multi Eye Color Palette",
+        "descriptions":"A balanced set of 9 different warm shades for versatile and understated eye makeup looks. This palette creates a clean, translucent look without the heaviness of powder products, while its sebum control powders keep your eye makeup fresh without creasing.",
+        "price":"$12.00",
+        "relate":"eyeshadow"
+    },
+    {
+        "id":"16",
+        "image_list": [
+            "/Images/3CE/m5.png"
+        ],
+        "title":"3CE Velvet Liquid Blusher ",
+        "descriptions":" 3CE Velvet Liquid Blusher tinges the cheeks with natural, clump-free color, imparting a soft and silky finish for a tasteful and elegant makeup look. #Like That - A pure apricot peach shade with a mature, classic vibe. How to Use : Dispense a small amount and gently apply.",
+        "price":"$15",
+        "relate":"blush"
+    },
+    {
+        "id":"17",
+        "image_list": [
+            "/Images/3CE/m7.png"
+        ],
+        "title":"3CE Soft Matte Lipstick ",
+        "descriptions":"With a primer-like matte texture, this tug-free lipstick glides across lips and leaves vivid, seamless color behind. : Rich and sensual color payoff is guaranteed with a single swipe or two. : The creamy and blendable formula ensures an easy gradient lip for various makeup looks.",
+        "price":"$15",
+        "relate":"lipstick"
+    },
+    {
+        "id":"18",
+        "image_list": [
+            "/Images/3CE/m23.png"
+        ],
+        "title":" 3CE Multi Eye Colour Palette",
+        "descriptions":"subtle and mature pinkish brown shades gracefully illuminate your eyes, while the deeper, richer shades create a powerful and alluring look. Product Features: Glittery Colour payoff.",
+        "price":"$18",
+        "relate":"eyeshadow"
+    },
+    {
+        "id":"19",
+        "image_list": [
+            "/Images/3CE/m42.png"
+        ],
+        "title":"3CE's Makeup Fix Powder",
+        "descriptions":"3CE's Makeup Fix Powder with blurring effect absorbs excess sebum and conceals enlarged pores for a flawless finish. Formula contains macadamia seed oil to nourish and moisturize skin. The Fair version comes in a peachy ivory color to correct yellowish undertones.",
+        "price":"$18",
+        "relate":"powder"
+    },
+    {
+        "id":"20",
+        "image_list": [
+            "/Images/3CE/m37.png"
+        ],
+        "title":"3CE Soft Matte Lipstick Clear Layer Edition ",
+        "descriptions": "With a primer-like matte texture, this tug-free lipstick glides across lips and leaves vivid, seamless color behind. : Rich and sensual color payoff is guaranteed with a single swipe or two. : The creamy and blendable formula ensures an easy gradient lip for various makeup looks.",
+        "price":"$18",
+        "relate":"lipstick"
+    },
+    {
+        "id":"21",
+        "image_list": [
+            "/Images/Mac/m5.png"
+        ],
+        "title":"MAC Studio Fix Complete Coverage ",
+        "descriptions": "A cushion foundation from Mac, delivering full coverage with a 24hr matte finish. The hydrating formula reduces the appearance of fine lines for a flawlessly smooth complexion.",
+        "price":"$20",
+        "relate":"cushion"
+    },
+    {
+        "id":"22",
+        "image_list": [
+            "/Images/Mac/m4.png"
+        ],
+        "title":"M∙A∙C Powder Blush ",
+        "descriptions": "M·A·C Powder Blush is designed by and for professionals. It's enriched with vitamin E and formulated to provide fantastic colour to cheeks with ease and consistency. Applies evenly, adheres lightly to skin to achieve ",
+        "price":"$30.45",
+        "relate":"blush"
+    },
+    {
+        "id":"23",
+        "image_list": [
+            "/Images/Mac/m8.png"
+        ],
+        "title":"MAC Matte Lipstick ",
+        "descriptions": "M.A.C Lipstick the iconic product that made M.A.C famous. This creamy rich formula features high colour payoff in a no-shine matte finish. Feature Benefits: Highly pigmented lipstick with a long-wearing formula that lasts upto 8 hours.",
+        "price":"$15.45",
+        "relate":"lipstick"
+    },
+    {
+        "id":"24",
+        "image_list": [
+            "/Images/Mac/m11.png"
+        ],
+        "title":"MAC Mascara Range",
+        "descriptions": "Enhancing volume, extending length, creating curl and staying put to the extreme, these highly defined lashes are clump-resistant and non-smudging – and can now withstand moisture. How to use: Press the brush into lashes close to roots and  it through lashes from root to tip.",
+        "price":"$18",
+        "relate":"mascara"
+    },
+    {
+        "id":"25",
+        "image_list": [
+            "/Images/Mac/m20.png"
+        ],
+        "title":"MAC Cosmetics Complete Comfort Cream",
+        "descriptions": "Enriched with Shea Butter, Jojoba Oil and Vitamin E, it will moisturise and protect skin to leave it feeling comfortable and hydrated. Water-resistant and non-drying. Formulated with non-comedogenic ingredients. Suitable for all skin types.",
+        "price":"$18",
+        "relate":"cream"
+    },
+    {
+        "id":"26",
+        "image_list": [
+            "/Images/Mac/s17.png"
+        ],
+        "title":"MAC Cosmetics Lightful Toner ",
+        "descriptions": "M·A·C (Make-up Art Cosmetics) is the pioneering makeup authority for all. Since its creation in Toronto, Canada, over 30 years ago, the brand's popularity has grown through a tradition of world-of-mouth endorsement from makeup artists, models, photographers and journalists around the world.",
+        "price":"$18",
+        "relate":"toner"
+    },
+    {
+        "id":"27",
+        "image_list": [
+            "/Images/Mac/s19.png"
+        ],
+        "title":"Lightful C³ Clarifying Gel-to-Foam Deep Cleanser ",
+        "descriptions": "Smooth gel to creamy foam that deep cleanses without stripping the skin. RM190.00",
+        "price":"$35.45",
+        "relate":"foam"
+    },
+    {
+        "id":"28",
+        "image_list": [
+            "/Images/Mac/s21.png"
+        ],
+        "title":"Prep + Prime Fix+ Makeup Setting Spray ",
+        "descriptions": "With a primer-like matte texture, this tug-free lipstick glides across lips and leaves vivid, seamless color behind. : Rich and sensual color payoff is guaranteed with a single swipe or two. : The creamy and blendable formula ensures an easy gradient lip for various makeup looks.",
+        "price":"$20.45",
+        "relate":"toner"
+    },
+    {
+        "id":"29",
+        "image_list": [
+            "/Images/Mac/s3.png"
+        ],
+        "title":"MAC Strop Cream ",
+        "descriptions": "Enriched with Shea Butter, Jojoba Oil and Vitamin E, it will moisturise and protect skin to leave it feeling comfortable and hydrated. Water-resistant and non-drying. Formulated with non-comedogenic ingredients. Suitable for all skin types.",
+        "price":"$18",
+        "relate":"cream"
+    },
+    {
+        "id":"30",
+        "image_list": [
+            "/Images/Mac/s10.png"
+        ],
+        "title":"MAC Cosmetics Lightful C3",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"cream"
+    },
+    {
+        "id":"31",
+        "image_list": [
+            "/Images/Sk/s18.png"
+        ],
+        "title":"SK-II Set Skincare",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"cream"
+    },
+    {
+        "id":"32",
+        "image_list": [
+            "/Images/Sk/s10.png"
+        ],
+        "title":"SK-II Night cream",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"cream"
+    },
+    {
+        "id":"33",
+        "image_list": [
+            "/Images/Sk/s9.png"
+        ],
+        "title":"SK-II Foam",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"foam"
+    },
+    {
+        "id":"34",
+        "image_list": [
+            "/Images/Sk/s21.png"
+        ],
+        "title":"SK-II Big Set Skincare",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"cream"
+    },
+    {
+        "id":"35",
+        "image_list": [
+            "/Images/Sk/s20.png"
+        ],
+        "title":"SK-II Serum",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"serum"
+    },
+    {
+        "id":"36",
+        "image_list": [
+            "/Images/Sk/s16.png"
+        ],
+        "title":"SK-II Serum",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"serum"
+    },
+    {
+        "id":"37",
+        "image_list": [
             "/Images/Sk/s19.png"
         ],
-        "title":"Sk-II Serum",
-        "descriptions":"Organic Anti Aging Anti Acne Face Skin Care Serum Collagen Repair",
-        "price":"$366",
-        "relate":"skincare"
+        "title":"SK-II Big Set Serum",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"serum"
+    },
+    {
+        "id":"38",
+        "image_list": [
+            "/Images/Sk/s11.png"
+        ],
+        "title":"SK-II Cream",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"cream"
+    },
+    {
+        "id":"39",
+        "image_list": [
+            "/Images/Sk/s15.png"
+        ],
+        "title":"SK-II Serum",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"serum"
+    },
+    {
+        "id":"40",
+        "image_list": [
+            "/Images/Sk/s5.png"
+        ],
+        "title":"SK-II Serum",
+        "descriptions": "A refreshing and skin-softening watery lotion that instantly hydrates and prepares skin for the skin care products that follow. It softens and moisturizes skin and helps improve the appearance of skin's texture for the optimal healthy look and radiant glow.",
+        "price":"$25.45",
+        "relate":"serum"
     }
 ]

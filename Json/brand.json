@@ -24,83 +24,288 @@
     ],
     "make_up": [
         {
-            "image_url":"/Images/Dior/b4.png",
-            "title":"Dior Makeup",
+            "id":"1",
+            "image_url":"/Images/Dior/a1.jpg",
+            "title":"DIOR Addict Lip Glow Oil",
+            "price":"25.00$",
             "brand":"dior"
         },
         {
+            "id":"2",
+            "image_url":"/Images/Dior/b4.png",
+            "title":"Diorshow Brow Styler",
+            "price":"14.45$",
+            "brand":"dior"
+        },
+        {
+            "id":"3",
+            "image_url":"/Images/Dior/c1.png",
+            "title":"Dior Forever Natural Nude Foundation",
+            "price":"16.00$",
+            "brand":"dior"
+        },
+        {
+            "id":"5",
+            "image_url":"/Images/Dior/e1.png",
+            "title":"DIOR Backstage Eyeshadow Palette",
+            "price":"15.45$",
+            "brand":"dior"
+        },
+        {
+            "id":"9",
+            "image_url":"/Images/Dior/a11.png",
+            "title":"Rosy Glow blush",
+            "price":"36.00$",
+            "brand":"dior"
+        },
+        {
+            "id":"11",
             "image_url":"/Images/3CE/m48.png",
-            "title":"3CE Professional for makeup",
+            "title":"3CE Bare Cover Cushion ",
+            "price":"18.00$",
             "brand":"3ce"
         },
         {
-            "image_url":"/Images/Dior/s2.png",
-            "title":"3CE Best for makeup",
+            "id":"12",
+            "image_url":"/Images/3CE/m3.png",
+            "title":"3CE Face Blush",
+            "price":"15.00$",
             "brand":"3ce"
         },
         {
-            "image_url":"/Images/Mac/m4.png",
-            "title":"Mac Best for makeup",
+            "id":"13",
+            "image_url":"/Images/3CE/m44.png",
+            "title":"3CE Back To Baby BB Cream",
+            "price":"20.45$",
+            "brand":"3ce"
+        },
+        {
+            "id":"14",
+            "image_url":"/Images/3CE/m51.png",
+            "title":"3CE - Super Slim Waterproof Mascara",
+            "price":"12.00$",
+            "brand":"3ce"
+        },
+        {
+            "id":"15",
+            "image_url":"/Images/3CE/m2.png",
+            "title":"3CE Multi Eye Color Palette",
+            "price":"12.00$",
+            "brand":"3ce"
+        },
+        {
+            "id":"16",
+            "image_url":"/Images/3CE/m5.png",
+            "title":"3CE Velvet Liquid Blusher ",
+            "price":"15.45$",
+            "brand":"3ce"
+        },
+        {
+            "id":"17",
+            "image_url":"/Images/3CE/m7.png",
+            "title":"3CE Soft Matte Lipstick ",
+            "price":"15.45$",
+            "brand":"3ce"
+        },
+        {
+            "id":"18",
+            "image_url":"/Images/3CE/m23.png",
+            "title":"3CE Multi Eye Colour Palette",
+            "price":"15.45$",
+            "brand":"3ce"
+        },
+        {
+            "id":"19",
+            "image_url":"/Images/3CE/m42.png",
+            "title":"3CE's Makeup Fix Powder",
+            "price":"18.00$",
+            "brand":"3ce"
+        },
+        {
+            "id":"20",
+            "image_url":"/Images/3CE/m37.png",
+            "title":"3CE Soft Matte Lipstick Clear Layer Edition",
+            "price":"18.00$",
+            "brand":"3ce"
+        },
+        {
+            "id":"21",
+            "image_url":"/Images/Mac/m5.png",
+            "title":"MAC Studio Fix Complete Coverage ",
+            "price":"20.00$",
             "brand":"mac"
         },
         {
+            "id":"22",
+            "image_url":"/Images/Mac/m4.png",
+            "title":"M∙A∙C Powder Blush",
+            "price":"30.45$",
+            "brand":"mac"
+        },
+        {
+            "id":"23",
             "image_url":"/Images/Mac/m8.png",
-            "title":"Mac Lip Balms",
+            "title":"MAC Matte Lipstick",
+            "price":"15.45$",
+            "brand":"mac"
+        },
+        {
+            "id":"24",
+            "image_url":"/Images/Mac/m11.png",
+            "title":"MAC Mascara Range",
+            "price":"18.00$",
+            "brand":"mac"
+        },
+        {
+            "id":"28",
+            "image_url":"/Images/Mac/s21.png",
+            "title":"Prep + Prime Fix+ Makeup Setting Spray",
+            "price":"20.45$",
+            "brand":"mac"
+        },
+        {
+            "id":"30",
+            "image_url":"/Images/Mac/s10.png",
+            "title":"MAC Cosmetics Lightful C3",
+            "price":"25.45$",
             "brand":"mac"
         }
     ],
     "skin_care": [
         {
-            "image_url":"/Images/Mac/s19.png",
-            "title":"Mac Foam face",
+            "id":"4",
+            "image_url":"/Images/Dior/d1.png",
+            "title":"Capture Youth Age-delay advanced creme",
+            "price":"36.00$",
             "brand":"dior"
         },
         {
+            "id":"6",
+            "image_url":"/Images/Dior/f4.png",
+            "title":"Dior Prestige La Micro-Huile de Rose Advanced Serum",
+            "price":"66.00$",
+            "brand":"dior"
+        },
+        {
+            "id":"7",
             "image_url":"/Images/Dior/m2.png",
-            "title":"Dior Best for your skin",
+            "title":"La Mousse OFF/ON Foaming Cleanser",
+            "price":"46.45$",
             "brand":"dior"
         },
         {
-            "image_url":"/Images/Mac/s21.png",
-            "title":"Mac Spray",
+            "id":"8",
+            "image_url":"/Images/Dior/s2.png",
+            "title":"Hydrating creme, age-defying creme",
+            "price":"36.00$",
+            "brand":"dior"
+        },
+        {
+            "id":"29",
+            "image_url":"/Images/Mac/s3.png",
+            "title":"MAC Strop Cream",
+            "price":"18.00$",
             "brand":"mac"
         },
         {
-            "image_url":"/Images/Sk/s5.png",
-            "title":"SK-II Serum",
+            "id":"25",
+            "image_url":"/Images/Mac/m20.png",
+            "title":"MAC Cosmetics Complete Comfort Cream",
+            "price":"18.00$",
+            "brand":"mac"
+        },
+        {
+            "id":"26",
+            "image_url":"/Images/Mac/s17.png",
+            "title":"MAC Cosmetics Lightful Toner",
+            "price":"18.00$",
+            "brand":"mac"
+        }
+        ,{
+            "id":"27",
+            "image_url":"/Images/Mac/s19.png",
+            "title":"Lightful C³ Clarifying Gel-to-Foam Deep Cleanser",
+            "price":"35.45$",
+            "brand":"mac"
+        },
+        {
+            "id":"31",
+            "image_url":"/Images/Sk/s18.png",
+            "title":"SK-II Set Skincare",
+            "price":"25.45$",
             "brand":"sk-II"
         },
         {
+            "id":"32",
             "image_url":"/Images/Sk/s10.png",
-            "title":"Sk-II Night cream",
+            "title":"SK-II Night cream",
+            "price":"646.45$",
+            "brand":"sk-II"
+        },
+        {
+            "id":"33",
+            "image_url":"/Images/Sk/s9.png",
+            "title":"SK-II Foam",
+            "price":"646.45$",
+            "brand":"sk-II"
+        },
+        {
+            "id":"34",
+            "image_url":"/Images/Sk/s21.png",
+            "title":"SK-II Big Set Skincare",
+            "price":"646.45$",
+            "brand":"sk-II"
+        },
+        {
+            "id":"35",
+            "image_url":"/Images/Sk/s20.png",
+            "title":"SK-II Serum",
+            "price":"646.45$",
+            "brand":"sk-II"
+        },
+        {
+            "id":"36",
+            "image_url":"/Images/Sk/s16.png",
+            "title":"SK-II Serum",
+            "price":"646.45$",
+            "brand":"sk-II"
+        },
+        {
+            "id":"37",
+            "image_url":"/Images/Sk/s19.png",
+            "title":"SK-II Big Set Serum",
+            "price":"646.45$",
+            "brand":"sk-II"
+        },
+        {
+            "id":"38",
+            "image_url":"/Images/Sk/s11.png",
+            "title":"SK-II Cream",
+            "price":"646.45$",
+            "brand":"sk-II"
+        },
+        {
+            "id":"39",
+            "image_url":"/Images/Sk/s15.png",
+            "title":"SK-II Serum",
+            "price":"646.45$",
+            "brand":"sk-II"
+        },
+        {
+            "id":"40",
+            "image_url":"/Images/Sk/s5.png",
+            "title":"SK-II Serum",
+            "price":"646.45$",
             "brand":"sk-II"
         }
     ],
     "body_care": [
         {
-            "image_url":"/Images/Mac/s19.png",
-            "title":"Mac Foam face",
+            "id":"10",
+            "image_url":"/Images/Dior/ba5.png",
+            "title":"Miss Dior",
+            "price":"100.45$",
             "brand":"dior"
-        },
-        {
-            "image_url":"/Images/Dior/m2.png",
-            "title":"Dior Best for your skin",
-            "brand":"dior"
-        },
-        {
-            "image_url":"/Images/Mac/s21.png",
-            "title":"Mac Spray",
-            "brand":"mac"
-        },
-        {
-            "image_url":"/Images/Sk/s5.png",
-            "title":"SK-II Serum",
-            "brand":"sk-II"
-        },
-        {
-            "image_url":"/Images/Sk/s10.png",
-            "title":"Sk-II Night cream",
-            "brand":"sk-II"
         }
     ]
 }
