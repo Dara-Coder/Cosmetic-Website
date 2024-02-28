@@ -1,6 +1,6 @@
 'use strict';
 const renderBrandList = (d=null) => {
-    d = d ? d : {};
+    d = d || [];
     const baseUrl = window.location.origin,
     self = document.getElementById('_main_container');
     let html = '',
@@ -8,12 +8,12 @@ const renderBrandList = (d=null) => {
 
     (d || []).forEach((brand, index) => {
         i = (index) % 5 === 0 ? 1 : i;
-        html += `<div class="card-product product-details overflow-hidden animate__animated animate__backInRight animate__delay-${i}s" data-brand="${brand.brand || 'dior'}">
+        html += `<div class="card-product product-details overflow-hidden animate__animated animate__backInRight animate__delay-${i}s" data-brand="${brand.brand_key || 'dior'}" data-id="${brand.id}">
             <div class="w-100">
-                <img class="product-show" src="${(brand.image_url ? baseUrl+brand.image_url : '') || ''}" alt="brand-image"/>
+                <img class="product-show" src="${brand.image_url || ''}" alt="brand-image"/>
             </div>
             <div class="w-100 px-2 mt-1">
-                <p class="text-dark limit-line">${brand.title || ''}</p>
+                <p class="text-dark limit-line fs-5 fw-semibold">${brand.name || ''}</p>
             </div>
         </div>`;
         i++;
@@ -32,16 +32,22 @@ const setClickEventProductList = (div) => {
         product.onclick = function(e)
         {
             e.preventDefault();
-            fetch('../JSON/productList.json').then(res => res.json()).then(d => {
-                const data = d[this.dataset.brand];
-                renderProductList(div,data);
+            const brand_id = this.dataset.id;
+            api.post(`${base_url}/api/front-end/product-list`,{
+                brand_id: brand_id
+            }).then(res => {
+                if(res.status_code === 200)
+                {
+                    const data = res.data || [];
+                    renderProductList(div,data);
+                }
             });
         };
     });
 }
 
 const renderProductList = (div,d=null) => {
-    d = d ? d : {};
+    d = d || [];
     const previousDiv = div.previousElementSibling;
     previousDiv.style.display = 'block';
     const baseUrl = window.location.origin;
@@ -52,13 +58,24 @@ const renderProductList = (div,d=null) => {
         i = (index) % 5 === 0 ? 1 : i;
         html += `<div class="card-product product-view-details overflow-hidden animate__animated animate__backInRight animate__delay-${i}s" data-id="${product.id || 1}">
             <div class="w-100">
-                <img class="product-show" src="${product.image_url ? baseUrl+product.image_url : ''}" alt="product-image"/>
+                <img class="product-show" src="${product.image_url || ''}" alt="product-image"/>
             </div>
             <div class="w-100 px-2 mt-1">
-                <p class="text-dark limit-line">${product.title || ''}</p>
+                <p class="text-dark limit-line p-0 m-0">
+                    <span>Code</span>
+                    <span class="px-1">:</span>
+                    <span class="fw-semibold">${product.code || ''}</span>
+                </p>
+            </div>
+            <div class="w-100 px-2 mt-1">
+                <p class="text-dark limit-line">
+                    <span>Product</span>
+                    <span class="px-1">:</span>
+                    <span class="fw-semibold">${product.name || ''}</span>
+                </p>
             </div>
             <div class="w-100 px-2 mt-2">
-                <p class="text-dark fs-5">Price: ${product.price || ''}</p>
+                <p class="text-end text-dark fs-5">Price: ${product.price || ''}$</p>
             </div>
         </div>`;
         i++;
@@ -73,26 +90,30 @@ const setClickEventProductListView = (div) => {
         productView.onclick = function(e)
         {
             e.preventDefault();
-            fetch('../Json/productDetails.json').then(res => res.json()).then(d => {
-                const data = d.find(p => {
-                    if(p.id === this.dataset.id)
-                        return p;
-                });
-                viewProductDetail(div,data);
+            const product_id = this.dataset.id;
+            api.post(`${base_url}/api/front-end/product-details`,{
+                product_id: product_id
+            }).then(res => {
+                if(res.status_code === 200)
+                {
+                    const data = res.data || {};
+                    viewProductDetail(div,data);
+                }
             });
         }
     });
 }
 
-const viewProductDetail = (div,d=null) => {
-    d = d ? d : {};
+const viewProductDetail = (div,data=null) => {
+    const d = data ? data.data : [];
     const previousDiv = div.previousElementSibling;
     previousDiv.style.display = 'none';
     const baseUrl = document.location.origin;
+
     const html = `<div class="d-flex justify-content-center animate__animated animate__fadeInUp">
         <div class="product-details-view">
             <div class="product-slider w-50">
-                <img class="product-image w-100 h-100" src="${d.image_list ? baseUrl+d.image_list[0] : ''}" alt="product-slider"/>
+                <img class="product-image w-100 h-100" src="${d.image_list ? d.image_list[0].image_url : ''}" alt="product-slider"/>
                 <div class="d-flex justify-content-between position-absolute w-100 h-100 z-1 top-0">
                     <div class="d-flex align-items-center h-100 ps-2">
                         <div class="btn-slider-decrement d-flex align-items-center justify-content-center p-3 rounded-circle border border-1" role="button">
@@ -107,9 +128,12 @@ const viewProductDetail = (div,d=null) => {
                 </div>
             </div>
             <div class="w-50">
-                <p class="fw-bold fs-5">${d.title || ''}</p>
-                <p class="ps-3 mt-3">${d.descriptions || ''}</p>
-                <p class="fw-bold mt-3">Price: ${d.price || 0}</p>
+                <div class="d-flex justify-content-end">
+                    <p class="fw-semibold fs-5 m-0 p-0 text-nowrap">Code : ${d.code || ''}</p>
+                </div>
+                <p class="fw-bold fs-5">${d.name || ''}</p>
+                <p class="ps-3 mt-3">${d.description || ''}</p>
+                <p class="fw-bold mt-3">Price: ${d.price || 0}$</p>
                 <div class="d-flex align-items-center gap-2 mt-3 flex-wrap">
                     <div class="d-flex gap-1 align-items-center">
                         <button class="btn btn-sm btn-outline-danger btn-decrement">
@@ -127,14 +151,16 @@ const viewProductDetail = (div,d=null) => {
             </div>
         </div>
     </div>`;
+
     div.innerHTML = html;
     const containerSlider = div.querySelector('.product-slider');
     let i = 0;
+
     setInterval(() => {
-        if(i === ((d.image_list && d.image_list.length) || 0)) i = 0;
-        if(d.image_list && d.image_list[0])
+        if(i === (d.image_list.length) || 0) i = 0;
+        if(d.image_list[0])
         {
-            containerSlider.innerHTML = `<img class="product-image w-100 h-100" src="${d.image_list ? baseUrl+d.image_list[i] : ''}" alt="product-slider"/>
+            containerSlider.innerHTML = `<img class="product-image w-100 h-100" src="${d.image_list ? d.image_list[i].image_url : ''}" alt="product-slider"/>
             <div class="d-flex justify-content-between position-absolute w-100 h-100 z-1 top-0">
                 <div class="d-flex align-items-center h-100 ps-2">
                     <div class="btn-slider-decrement d-flex align-items-center justify-content-center p-3 rounded-circle border border-1" role="button">
@@ -149,11 +175,11 @@ const viewProductDetail = (div,d=null) => {
             </div>`;
         }
         i++;
-        i = viewProductImage(i,((d.image_list && d.image_list.length) || 0),div.firstChild,d.image_list);
+        i = viewProductImage(i,(d.image_list.length || 0),div.firstChild,d.image_list);
     },5000);
-    renderRelatedProduct(div,d.relate);
+    renderRelatedProduct(div,data.related);
     setBookingProduct(div);
-    i = viewProductImage(i,((d.image_list && d.image_list.length) || 0),div.firstChild,d.image_list);
+    i = viewProductImage(i,(d.image_list.length || 0),div.firstChild,d.image_list);
 }
 
 const viewProductImage = (index,length,div,d=[]) => {

@@ -8,37 +8,38 @@ const base_url = 'http://localhost:8000';
     let html = '',
     moreMenu = '';
 
-    fetch('../Json/menu.json').then(res => res.json()).then(d => {
-        (d || []).forEach((mn,i) => {
-            if(i<7)
-            {
-                html += `<li class="product-click fs-5" data-category="${mn.category || 'home'}">${mn.name || ''}</li>`;
-            }
-            else
-            {
-                moreMenu += `<li class="product-click fs-5" data-category="${mn.category || 'home'}">${mn.name || ''}</li>`;
-            }
-        });
-
-        if(moreMenu)
+    api.get(`${base_url}/api/front-end/category`).then(res => {
+        if(res.status_code === 200)
         {
-            html += `<li id="_menu_ct_box1" class="position-relative">
-                <span>More</span>
-                <div class="menus-box-container" style="display:none">
-                    <ul>${moreMenu}</ul>
-                </div>
-            </li>`;
+            const d = res.data || [];
+            (d || []).forEach((mn,i) => {
+                if(i<7)
+                {
+                    html += `<li class="product-click fs-5" data-category="${mn.category_key || 'home'}">${mn.name || ''}</li>`;
+                }
+                else
+                {
+                    moreMenu += `<li class="product-click fs-5" data-category="${mn.category_key || 'home'}">${mn.name || ''}</li>`;
+                }
+            });
+    
+            if(moreMenu)
+            {
+                html += `<li id="_menu_ct_box1" class="position-relative">
+                    <span>More</span>
+                    <div class="menus-box-container" style="display:none">
+                        <ul>${moreMenu}</ul>
+                    </div>
+                </li>`;
+            }
+            
+            if(self)
+            {
+                self.innerHTML = `<ul>${html}</ul>`;
+                if(moreMenu) displayMenuBox(self);
+                setClickEvent(self);
+            }
         }
-        
-        if(self)
-        {
-            self.innerHTML = `<ul>${html}</ul>`;
-            if(moreMenu) displayMenuBox(self);
-            setClickEvent(self);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
     });
 })();
 
@@ -75,14 +76,17 @@ const setClickEvent = (div) => {
             }
             this.classList.add('active');
             previousElement = this;
+            const category = this.dataset.category;
             
-            fetch('../Json/brand.json').then(res => res.json()).then(d => {
-                const data = d[this.dataset.category];
-                window.location.hash = this.dataset.category.replace(/\_/g,'-');
-                renderBrandList(data);
-            })
-            .catch(error => {
-                console.log('Error: ',error);
+            api.post(`${base_url}/api/front-end/brand`,{
+                category: category
+            }).then(res => {
+                if(res.status_code === 200)
+                {
+                    const data = res.data || [];
+                    window.location.hash = category.replace(/\_/g,'-');
+                    renderBrandList(data);
+                }
             });
         });
         routes.push({

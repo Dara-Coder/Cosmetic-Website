@@ -1,37 +1,39 @@
 'use strict';
-const renderRelatedProduct = (div,relate) => {
-    const baseUrl = window.location.origin;
-    fetch('../Json/productDetails.json').then(res => res.json()).then(d => {
-        const data = d.filter(r => {
-            if(r.relate === relate)
-                return r;
-        });
+const renderRelatedProduct = (div,data=[]) => {
+    const baseUrl = window.location.origin,
+    firstContainer = div.firstChild;
+    let html = '';
 
-        const firstContainer = div.firstChild;
-        let html = '';
-
-        (data || []).forEach(re => {
-            html += `<div class="card-product product-view-details overflow-hidden" data-id="${re.id || 1}">
-                <div class="w-100">
-                    <img class="product-show" src="${baseUrl+re.image_list[0] || ''}" alt="product-image"/>
-                </div>
-                <div class="w-100 px-2 mt-1">
-                    <p class="text-dark limit-line">${re.title || ''}</p>
-                </div>
-                <div class="w-100 px-2 mt-2">
-                    <p class="text-dark fs-5">Price: ${re.price || ''}</p>
-                </div>
-            </div>`;
-        });
-
-        html = `<div class="brand-section mt-3 animate__animated  animate__fadeInUp animate__delay-2s">
-            <p class="text-capitalize fs-5 fw-bold">Related Product</p>
-        </div>
-        <div class="d-flex gap-2 justify-content-around flex-wrap mt-3 animate__animated  animate__fadeInUp animate__delay-3s">${html}</div>`;
-
-        firstContainer.insertAdjacentHTML("afterend",html);
-        setClickEventProductListView(div);
+    (data || []).forEach(re => {
+        html += `<div class="card-product product-view-details overflow-hidden" data-id="${re.id || 1}">
+            <div class="w-100">
+                <img class="product-show" src="${re.image_url || ''}" alt="product-image"/>
+            </div>
+            <div class="w-100 px-2 mt-1">
+                <p class="text-dark limit-line p-0 m-0">
+                    <span>Code</span>
+                    <span class="px-1">:</span>
+                    <span class="fw-semibold">${re.code || ''}</span>
+                </p>
+                <p class="text-dark limit-line">
+                    <span>Product</span>
+                    <span class="px-1">:</span>
+                    <span class="fw-semibold">${re.name || ''}</span>
+                </p>
+            </div>
+            <div class="d-flex justify-content-end w-100 px-2 mt-2">
+                <p class="text-dark fs-5">Price: ${re.price || ''}$</p>
+            </div>
+        </div>`;
     });
+
+    html = `<div class="brand-section mt-3 animate__animated  animate__fadeInUp animate__delay-2s">
+        <p class="text-capitalize fs-5 fw-bold">Related Product</p>
+    </div>
+    <div class="d-flex gap-2 justify-content-around flex-wrap mt-3 animate__animated  animate__fadeInUp animate__delay-3s">${html}</div>`;
+
+    firstContainer.insertAdjacentHTML("afterend",html);
+    setClickEventProductListView(div);
 }
 
 const modelDialog = () => {
@@ -206,7 +208,7 @@ const renderBodyOffCanvas = (div,id) => {
     if(productBookedList[0])
     {
         productBookedList.forEach(d => {
-            html += `<div class="d-flex align-items-end gap-2 shadow-sm rounded-3 p-2 border position-relative">
+            html += `<div class="d-flex align-items-end gap-2 shadow-sm rounded-3 p-2 border position-relative overflow-hidden">
                 <div class="container-product-image">
                     <img class="img-thumbnail object-fit-scale w-100 h-100" src="${baseUrl+((d.image_list && d.image_list[0]) || '/Images/Dior/a1.jpg')}" alt="product-image"/>
                 </div>
@@ -214,11 +216,11 @@ const renderBodyOffCanvas = (div,id) => {
                     <div class="d-flex justify-content-center h-100">
                         <p class="p-0 m-0 fw-semibold w-75 text-center">${d.title || ''}</p>
                     </div>
-                    <div class="d-flex justify-content-center align-items-center w-100">
+                    <div class="d-flex justify-content-center align-items-center w-100 gap-1">
                         <button class="btn-decrement btn btn-sm btn-outline-danger" type="button">
                             <i class="fa-solid fa-minus fs-5"></i>
                         </button>
-                        <div class="d-flex justify-content-center align-items-center p-1 border border-primary flex-grow-1 rounded-3">
+                        <div class="d-flex justify-content-center align-items-center border border-primary flex-grow-1 p-1">
                             <p class="p-0 m-0">Qty: </p>
                             <p class="p-0 m-0 fw-bold ps-2">1</p>
                         </div>
@@ -227,7 +229,7 @@ const renderBodyOffCanvas = (div,id) => {
                         </button>
                     </div>
                 </div>
-                <div class="btn-delete p-2 position-absolute top-0 end-0 bg-dark bg-opacity-25 rounded-3" role="button" data-id="${d.id || 0}">
+                <div class="btn-delete p-1 position-absolute top-0 end-0 bg-dark bg-opacity-25" role="button" data-id="${d.id || 0}">
                     <i class="fa-regular fa-trash-can fs-5 text-danger"></i>
                 </div>
             </div>`;
