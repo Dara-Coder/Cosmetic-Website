@@ -11,7 +11,7 @@ const renderRelatedProduct = (div,relate) => {
         let html = '';
 
         (data || []).forEach(re => {
-            html += `<div class="card-product product-view-details" data-id="${re.id || 1}">
+            html += `<div class="card-product product-view-details overflow-hidden" data-id="${re.id || 1}">
                 <div class="w-100">
                     <img class="product-show" src="${baseUrl+re.image_list[0] || ''}" alt="product-image"/>
                 </div>
@@ -24,10 +24,10 @@ const renderRelatedProduct = (div,relate) => {
             </div>`;
         });
 
-        html = `<div class="brand-section mt-3">
+        html = `<div class="brand-section mt-3 animate__animated  animate__fadeInUp animate__delay-2s">
             <p class="text-capitalize fs-5 fw-bold">Related Product</p>
         </div>
-        <div class="d-flex gap-2 justify-content-around flex-wrap mt-3">${html}</div>`;
+        <div class="d-flex gap-2 justify-content-around flex-wrap mt-3 animate__animated  animate__fadeInUp animate__delay-3s">${html}</div>`;
 
         firstContainer.insertAdjacentHTML("afterend",html);
         setClickEventProductListView(div);
@@ -37,7 +37,8 @@ const renderRelatedProduct = (div,relate) => {
 const modelDialog = () => {
     const modalId = '_prd_model';
     const previousModel = document.querySelector(`#${modalId}`);
-    if(previousModel){
+    if(previousModel)
+    {
         previousModel.remove();
     }
     const modalHtml = `<div id="${modalId}" class="modal fade">
@@ -59,7 +60,8 @@ const modelDialog = () => {
         backdrop: 'static'
     }).show();
     const modal = document.getElementById(modalId);
-    modal.addEventListener('hidden.bs.modal',function(){
+    modal.addEventListener('hidden.bs.modal',function()
+    {
         this.remove();
         document.body.removeAttribute('class');
         document.body.removeAttribute('style');
@@ -74,12 +76,14 @@ const renderModelBody = (modal) => {
     previousClick = null;
 
     tabList.forEach(tab => {
-        tab.onclick = function(){
+        tab.onclick = function()
+        {
             if(previousClick)
                 previousClick.classList.remove('btn-active');
             tab.classList.add('btn-active');
             previousClick = this;
-            switch(tab.dataset.purpose){
+            switch(tab.dataset.purpose)
+            {
                 case 'login':
                     html = `<form class="d-flex gap-3 flex-column" method="POST" autocomplete="off" enctype="multipart/form-data">
                         <div class="form-group">
@@ -137,7 +141,10 @@ const renderModelBody = (modal) => {
             }
         }
     });
-    tabList[0].dispatchEvent(new Event('click'));
+    tabList[0].dispatchEvent(new Event('click',{
+        bubbles: true,
+        cancelable: false
+    }));
 }
 
 const getDataForm = (div) => {
@@ -151,7 +158,8 @@ const getDataForm = (div) => {
 
 const setBtnSave = (div) => {
     const btnSave = div.querySelector('.btn-save');
-    btnSave.onclick = function(e){
+    btnSave.onclick = function(e)
+    {
         e.preventDefault();
         const p = getDataForm(div);
         console.log(p);
@@ -178,12 +186,14 @@ const offCanvas = () => {
         backdrop: 'static'
     }).show();
     const offCanvas = document.getElementById(offcanvas_id);
-    offCanvas.addEventListener('hidden.bs.offcanvas',function(){
+    offCanvas.addEventListener('hidden.bs.offcanvas',function()
+    {
         this.remove();
         document.body.removeAttribute('class');
         document.body.removeAttribute('style');
     });
-    if(offCanvas){
+    if(offCanvas)
+    {
         renderBodyOffCanvas(offCanvas,offcanvas_id);
         setOrderEvent(offCanvas);
     }
@@ -193,7 +203,8 @@ const renderBodyOffCanvas = (div,id) => {
     const offCanvasBody = div.querySelector(`#${id}_body`),
     baseUrl = window.location.origin;
     let html = '';
-    if(productBookedList[0]){
+    if(productBookedList[0])
+    {
         productBookedList.forEach(d => {
             html += `<div class="d-flex align-items-end gap-2 shadow-sm rounded-3 p-2 border position-relative">
                 <div class="container-product-image">
@@ -232,7 +243,8 @@ const setEventToOffCanvas = (div) => {
     btnDeleteList = div.querySelectorAll('.btn-delete');
 
     btnIncrementList.forEach(btn => {
-        btn.onclick = function(e){
+        btn.onclick = function(e)
+        {
             e.preventDefault();
             const qty = this.previousElementSibling.lastElementChild;
             qty.textContent = parseInt(qty.textContent) + 1;
@@ -240,17 +252,20 @@ const setEventToOffCanvas = (div) => {
     });
 
     btnDecrementList.forEach(btn => {
-        btn.onclick = function(e){
+        btn.onclick = function(e)
+        {
             e.preventDefault(); 
             const qty = this.nextElementSibling.lastElementChild;
-            if(parseInt(qty.textContent) > 1){
+            if(parseInt(qty.textContent) > 1)
+            {
                 qty.textContent = parseInt(qty.textContent) - 1;
             }
         }
     });
 
     btnDeleteList.forEach(btn => {
-        btn.onclick = function(e){
+        btn.onclick = function(e)
+        {
             e.preventDefault();
             const id = this.dataset.id;
             const parent = this.parentElement;
@@ -258,7 +273,8 @@ const setEventToOffCanvas = (div) => {
             productList = productList.filter(item => item !== id);
             fetch('../Json/productDetails.json').then(res => res.json()).then(d => {
                 productBookedList = d.filter(value => productList.includes(value.id));
-            }).catch(err => {
+            })
+            .catch(err => {
                 console.log(err);
             });
         }
@@ -267,16 +283,19 @@ const setEventToOffCanvas = (div) => {
 
 const setOrderEvent = (div) => {
     const btnOrder = div.querySelector('.btn-order');
-    btnOrder.onclick = function(e){
+    btnOrder.onclick = function(e)
+    {
         e.preventDefault();
-        if(productBookedList.length > 0){
+        if(productBookedList.length > 0)
+        {
             Swal.fire({
                 title: "Product Ordered Successfully!",
                 icon: "success",
                 width: 400
             });
         }
-        else{
+        else
+        {
             Swal.fire({
                 title: "Get a product before order!",
                 icon: 'warning',

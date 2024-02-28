@@ -1,9 +1,11 @@
 'use strict';
-(function(){
+(function()
+{
     const userObj = document.getElementById('user_info');
     let dropdown;
 
-    userObj.onclick = function(e){
+    userObj.onclick = function(e)
+    {
         e.preventDefault();
         const html = `<div class="dropdown-menu-user shadow overflow-hidden p-0">
             <p class="p-0 text-center bg-warning bg-opacity-50">
@@ -30,10 +32,13 @@
         else
             userObj.innerHTML += html;
 
-        if(dropdown){
+        if(dropdown)
+        {
             const logoutObj = dropdown.querySelector('.logout');
-            if(logoutObj){
-                logoutObj.onclick = function(e){
+            if(logoutObj)
+            {
+                logoutObj.onclick = function(e)
+                {
                     e.preventDefault();
                     Swal.fire({
                         title: "Do you want to log out?",
@@ -43,8 +48,11 @@
                         confirmButtonColor: "#dc3545",
                         confirmButtonText: "Logout",
                         denyButtonText: "Cancel"
-                    }).then(function(result){
-                        if(result.isConfirmed){
+                    })
+                    .then(function(result)
+                    {
+                        if(result.isConfirmed)
+                        {
                             Swal.fire({
                                 title: "Logout Successfully!",
                                 icon: "success",
@@ -56,8 +64,10 @@
             }
 
             const productBookedObj = dropdown.querySelector('.product-booked');
-            if(productBookedObj){
-                productBookedObj.onclick = function(e){
+            if(productBookedObj)
+            {
+                productBookedObj.onclick = function(e)
+                {
                     e.preventDefault();
                     offCanvas();
                 }
@@ -65,10 +75,12 @@
         }
     }
 
-    document.onmouseup = function(e){
+    document.onmouseup = function(e)
+    {
         e.preventDefault();
         dropdown = userObj.querySelector('.dropdown-menu-user');
-        if(dropdown && !dropdown.contains(e.target)){
+        if(dropdown && !dropdown.contains(e.target))
+        {
             dropdown.remove();
         }
     }

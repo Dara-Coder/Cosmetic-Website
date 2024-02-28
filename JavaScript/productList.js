@@ -3,19 +3,22 @@ const renderBrandList = (d=null) => {
     d = d ? d : {};
     const baseUrl = window.location.origin,
     self = document.getElementById('_main_container');
-    let html = '';
+    let html = '',
+    i = 1;
 
-    (d || []).forEach(brand => {
-        html += `<div class="card-product product-details" data-brand="${brand.brand ? brand.brand : 'dior'}">
+    (d || []).forEach((brand, index) => {
+        i = (index) % 5 === 0 ? 1 : i;
+        html += `<div class="card-product product-details overflow-hidden animate__animated animate__backInRight animate__delay-${i}s" data-brand="${brand.brand || 'dior'}">
             <div class="w-100">
                 <img class="product-show" src="${(brand.image_url ? baseUrl+brand.image_url : '') || ''}" alt="brand-image"/>
             </div>
             <div class="w-100 px-2 mt-1">
-                <p class="text-dark limit-line">${brand.title ? brand.title : ''}</p>
+                <p class="text-dark limit-line">${brand.title || ''}</p>
             </div>
         </div>`;
+        i++;
     });
-    html = `<div class="d-flex flex-wrap gap-2 justify-content-around mb-3">${html}</div>`;
+    html = `<div class="d-flex flex-wrap gap-2 justify-content-around mb-3 animate__animated animate__fadeInUp">${html}</div>`;
 
     self.innerHTML = html;
     const previousDiv = self.previousElementSibling;
@@ -26,7 +29,8 @@ const renderBrandList = (d=null) => {
 const setClickEventProductList = (div) => {
     const productDetailsList = div.querySelectorAll('.product-details');
     productDetailsList.forEach(product => {
-        product.onclick = function(e){
+        product.onclick = function(e)
+        {
             e.preventDefault();
             fetch('../JSON/productList.json').then(res => res.json()).then(d => {
                 const data = d[this.dataset.brand];
@@ -41,19 +45,23 @@ const renderProductList = (div,d=null) => {
     const previousDiv = div.previousElementSibling;
     previousDiv.style.display = 'block';
     const baseUrl = window.location.origin;
-    let html = '';
-    (d || []).forEach(product => {
-        html += `<div class="card-product product-view-details" data-id="${product.id ? product.id : 1}">
+    let html = '',
+    i = 1;
+
+    (d || []).forEach((product, index) => {
+        i = (index) % 5 === 0 ? 1 : i;
+        html += `<div class="card-product product-view-details overflow-hidden animate__animated animate__backInRight animate__delay-${i}s" data-id="${product.id || 1}">
             <div class="w-100">
                 <img class="product-show" src="${product.image_url ? baseUrl+product.image_url : ''}" alt="product-image"/>
             </div>
             <div class="w-100 px-2 mt-1">
-                <p class="text-dark limit-line">${product.title ? product.title : ''}</p>
+                <p class="text-dark limit-line">${product.title || ''}</p>
             </div>
             <div class="w-100 px-2 mt-2">
-                <p class="text-dark fs-5">Price: ${product.price ? product.price : ''}</p>
+                <p class="text-dark fs-5">Price: ${product.price || ''}</p>
             </div>
         </div>`;
+        i++;
     });
     div.innerHTML = `<div class="d-flex flex-wrap gap-2 justify-content-around">${html}</div>`;
     setClickEventProductListView(div);
@@ -62,7 +70,8 @@ const renderProductList = (div,d=null) => {
 const setClickEventProductListView = (div) => {
     const productViewList = div.querySelectorAll('.product-view-details');
     productViewList.forEach(productView => {
-        productView.onclick = function(e){
+        productView.onclick = function(e)
+        {
             e.preventDefault();
             fetch('../Json/productDetails.json').then(res => res.json()).then(d => {
                 const data = d.find(p => {
@@ -80,9 +89,9 @@ const viewProductDetail = (div,d=null) => {
     const previousDiv = div.previousElementSibling;
     previousDiv.style.display = 'none';
     const baseUrl = document.location.origin;
-    const html = `<div class="d-flex justify-content-center">
+    const html = `<div class="d-flex justify-content-center animate__animated animate__fadeInUp">
         <div class="product-details-view">
-            <div class="product-slider w-50 h-100">
+            <div class="product-slider w-50">
                 <img class="product-image w-100 h-100" src="${d.image_list ? baseUrl+d.image_list[0] : ''}" alt="product-slider"/>
                 <div class="d-flex justify-content-between position-absolute w-100 h-100 z-1 top-0">
                     <div class="d-flex align-items-center h-100 ps-2">
@@ -98,9 +107,9 @@ const viewProductDetail = (div,d=null) => {
                 </div>
             </div>
             <div class="w-50">
-                <p class="fw-bold fs-5">${d.title ? d.title : ''}</p>
-                <p class="ps-3 mt-3">${d.descriptions ? d.descriptions : ''}</p>
-                <p class="fw-bold mt-3">Price: ${d.price ? d.price : 0}</p>
+                <p class="fw-bold fs-5">${d.title || ''}</p>
+                <p class="ps-3 mt-3">${d.descriptions || ''}</p>
+                <p class="fw-bold mt-3">Price: ${d.price || 0}</p>
                 <div class="d-flex align-items-center gap-2 mt-3 flex-wrap">
                     <div class="d-flex gap-1 align-items-center">
                         <button class="btn btn-sm btn-outline-danger btn-decrement">
@@ -112,7 +121,7 @@ const viewProductDetail = (div,d=null) => {
                         </button>
                     </div>
                     <div class="d-block">
-                        <button class="btn btn-sm btn-primary btn-get-product" data-id="${d.id ? d.id : 0}">Get Product</button>
+                        <button class="btn btn-sm btn-primary btn-get-product" data-id="${d.id || 0}">Get Product</button>
                     </div>
                 </div>
             </div>
@@ -123,7 +132,8 @@ const viewProductDetail = (div,d=null) => {
     let i = 0;
     setInterval(() => {
         if(i === ((d.image_list && d.image_list.length) || 0)) i = 0;
-        if(d.image_list && d.image_list[0]){
+        if(d.image_list && d.image_list[0])
+        {
             containerSlider.innerHTML = `<img class="product-image w-100 h-100" src="${d.image_list ? baseUrl+d.image_list[i] : ''}" alt="product-slider"/>
             <div class="d-flex justify-content-between position-absolute w-100 h-100 z-1 top-0">
                 <div class="d-flex align-items-center h-100 ps-2">
@@ -140,7 +150,7 @@ const viewProductDetail = (div,d=null) => {
         }
         i++;
         i = viewProductImage(i,((d.image_list && d.image_list.length) || 0),div.firstChild,d.image_list);
-    },2000);
+    },5000);
     renderRelatedProduct(div,d.relate);
     setBookingProduct(div);
     i = viewProductImage(i,((d.image_list && d.image_list.length) || 0),div.firstChild,d.image_list);
@@ -152,15 +162,19 @@ const viewProductImage = (index,length,div,d=[]) => {
     btnIncrement = div.querySelector('.btn-slider-increment'),
     imageElement = div.querySelector('.product-image');
 
-    if(btnDecrement){
-        btnDecrement.onclick = function(e){
+    if(btnDecrement)
+    {
+        btnDecrement.onclick = function(e)
+        {
             e.preventDefault();
-            if(index > 0){
+            if(index > 0)
+            {
                 index--;
                 if(imageElement)
                     imageElement.src = (baseUrl+d[index]);
             }
-            else{
+            else
+            {
                 index = (length-1);
                 if(imageElement)
                     imageElement.src = (baseUrl+d[index]);
@@ -168,15 +182,19 @@ const viewProductImage = (index,length,div,d=[]) => {
         }
     }
 
-    if(btnIncrement){
-        btnIncrement.onclick = function(e){
+    if(btnIncrement)
+    {
+        btnIncrement.onclick = function(e)
+        {
             e.preventDefault();
-            if(index < (length-1)){
+            if(index < (length-1))
+            {
                 index++;
                 if(imageElement)
                     imageElement.src = (baseUrl+d[index]);
             }
-            else{
+            else
+            {
                 index = 0;
                 if(imageElement)
                     imageElement.src = (baseUrl+d[index]);
@@ -194,78 +212,106 @@ const setBookingProduct = (div) => {
     productBooked = div.querySelector('.show-product-amount'),
     getProduct = div.querySelector('.btn-get-product');
 
-    btnDecrement.onclick = function(e){
+    btnDecrement.onclick = function(e)
+    {
         e.preventDefault();
         let value = parseInt(productBooked.textContent);
-        if(value > 1){
+        if(value > 1)
+        {
             productBooked.textContent = parseInt(productBooked.textContent) - 1;
         }
-        else{
+        else
+        {
             productBooked.textContent = 1;
         }
     }
 
-    btnIncrement.onclick = function(e){
+    btnIncrement.onclick = function(e)
+    {
         e.preventDefault();
         let value = parseInt(productBooked.textContent);
-        if(value >= 1){
+        if(value >= 1)
+        {
             productBooked.textContent = parseInt(productBooked.textContent) + 1;
         }
-        else{
+        else
+        {
             productBooked.textContent = 1;
         }
     }
 
-    getProduct.onclick = function(e){
+    getProduct.onclick = function(e)
+    {
         e.preventDefault();
         const productId = this.dataset.id;
         fetch('../Json/login.json').then(res => res.json()).then(d => {
             d.forEach(user => {
                 if((user.login_name == 'peter') && (user.password == '123456'))
                 {
-                    if(!productList[0]){
+                    if(!productList[0])
+                    {
                         productList.push(productId);
-                        Swal.fire({
+                        const Toast = Swal.mixin({
+                            toast: true,
                             position: "top-end",
-                            icon: "success",
-                            title: "Your product has been saved",
                             showConfirmButton: false,
-                            timer: 1500,
-                            width:350
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal.resumeTimer;
+                            }
+                        });
+                        Toast.fire({
+                            icon: "success",
+                            title: "Your product has been saved"
                         });
                     }
-                    else{
+                    else
+                    {
                         const exist = productList.includes(productId);
-                        if(exist){
+                        if(exist)
+                        {
                             Swal.fire({
                                 title: "Product Already Exist!",
                                 icon: "warning",
                                 width: 400
                             });
                         }
-                        else{
+                        else
+                        {
                             productList.push(productId);
-                            Swal.fire({
+                            const Toast = Swal.mixin({
+                                toast: true,
                                 position: "top-end",
-                                icon: "success",
-                                title: "Your product has been saved",
                                 showConfirmButton: false,
-                                timer: 1500,
-                                width: 350
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.onmouseenter = Swal.stopTimer;
+                                    toast.onmouseleave = Swal.resumeTimer;
+                                }
+                            });
+                            Toast.fire({
+                                icon: "success",
+                                title: "Your product has been saved"
                             });
                         }
                     }
                     fetch('../Json/productDetails.json').then(res => res.json()).then(d => {
                         productBookedList = d.filter(value => productList.includes(value.id));
-                    }).catch(err => {
+                    })
+                    .catch(err => {
                         console.log(err);
                     });
                 }
-                else{
+                else
+                {
                     modelDialog();
                 }
             });
-        }).catch(err => {
+        })
+        .catch(err => {
             console.log(err);
         });
     }

@@ -1,20 +1,24 @@
 'use strict';
-(function(){
+(function()
+{
     const self = document.getElementById('_menu_container');
     let html = '',
     moreMenu = '';
 
     fetch('../Json/menu.json').then(res => res.json()).then(d => {
         d && d.forEach((mn,i) => {
-            if(i<7){
+            if(i<7)
+            {
                 html += `<li class="product-click fs-5" data-category="${mn.category || 'home'}">${mn.name ? mn.name : ''}</li>`;
             }
-            else{
+            else
+            {
                 moreMenu += `<li class="product-click fs-5" data-category="${mn.category ? mn.category : 'home'}">${mn.name ? mn.name : ''}</li>`;
             }
         });
 
-        if(moreMenu){
+        if(moreMenu)
+        {
             html += `<li id="_menu_ct_box1" class="position-relative">
                 <span>More</span>
                 <div class="menus-box-container" style="display:none">
@@ -23,13 +27,15 @@
             </li>`;
         }
         
-        if(self){
+        if(self)
+        {
             self.innerHTML = `<ul>${html}</ul>`;
             if(moreMenu)
                 displayMenuBox(self);
             setClickEvent(self);
         }
-    }).catch(error => {
+    })
+    .catch(error => {
         console.error('Error:', error);
     });
 })();
@@ -37,13 +43,16 @@
 const displayMenuBox = (div) => {
     const moreBtn = div.querySelector('#_menu_ct_box1'),
     menuBox = moreBtn.querySelector('.menus-box-container');
-    moreBtn.onclick = function(e){
+    moreBtn.onclick = function(e)
+    {
         e.preventDefault();
         menuBox.style.display = 'block';
     }
 
-    document.onmouseup = function(e){
-        if(!menuBox.contains(e.target)){
+    document.onmouseup = function(e)
+    {
+        if(!menuBox.contains(e.target))
+        {
             menuBox.style.display = 'none';
         }
     }
@@ -51,11 +60,15 @@ const displayMenuBox = (div) => {
 
 const setClickEvent = (div) => {
     const menuList = div.querySelectorAll('.product-click');
-    let previousElement = null;
+    let previousElement = null,
+    routes = [];
+
     menuList.forEach(menu => {
-        menu.addEventListener('click',function(e){
+        menu.addEventListener('click',function(e)
+        {
             e.preventDefault();
-            if(previousElement){
+            if(previousElement)
+            {
                 previousElement.classList.remove('active');
             }
             this.classList.add('active');
@@ -63,11 +76,26 @@ const setClickEvent = (div) => {
             
             fetch('../Json/brand.json').then(res => res.json()).then(d => {
                 const data = d[this.dataset.category];
+                window.location.hash = this.dataset.category.replace(/\_/g,'-');
                 renderBrandList(data);
-            }).catch(error => {
+            })
+            .catch(error => {
                 console.log('Error: ',error);
             });
         });
+        routes.push({
+            path: menu.dataset.category.replace(/\_/g,'-'),
+            callback: () => {
+                menu.dispatchEvent(new Event('click',{
+                    bubbles: true,
+                    cancelable: false
+                }));
+            }
+        });
     });
-    menuList[0].dispatchEvent(new Event('click'));
+    const router = new Router(routes);
+    window.addEventListener('hashchange',() => {
+        const pathName = window.location.hash.slice(1);
+        router.loadRoute(pathName);
+    });
 }
