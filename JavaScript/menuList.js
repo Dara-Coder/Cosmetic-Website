@@ -1,4 +1,7 @@
 'use strict';
+
+const base_url = 'http://localhost:8000';
+
 (function()
 {
     const self = document.getElementById('_menu_container');
@@ -6,14 +9,14 @@
     moreMenu = '';
 
     fetch('../Json/menu.json').then(res => res.json()).then(d => {
-        d && d.forEach((mn,i) => {
+        (d || []).forEach((mn,i) => {
             if(i<7)
             {
-                html += `<li class="product-click fs-5" data-category="${mn.category || 'home'}">${mn.name ? mn.name : ''}</li>`;
+                html += `<li class="product-click fs-5" data-category="${mn.category || 'home'}">${mn.name || ''}</li>`;
             }
             else
             {
-                moreMenu += `<li class="product-click fs-5" data-category="${mn.category ? mn.category : 'home'}">${mn.name ? mn.name : ''}</li>`;
+                moreMenu += `<li class="product-click fs-5" data-category="${mn.category || 'home'}">${mn.name || ''}</li>`;
             }
         });
 
@@ -30,8 +33,7 @@
         if(self)
         {
             self.innerHTML = `<ul>${html}</ul>`;
-            if(moreMenu)
-                displayMenuBox(self);
+            if(moreMenu) displayMenuBox(self);
             setClickEvent(self);
         }
     })

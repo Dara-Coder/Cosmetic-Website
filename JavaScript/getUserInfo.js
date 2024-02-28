@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded',() => {
         fetch(`https://api.iplocation.net/?ip=${d.ip}`)
         .then(res => res.json())
         .then(d => {
-            fetch('http://localhost:8000/api/front-end/save',{
+            fetch(`${base_url}/api/front-end/save`,{
                 method: 'POST',
                 headers: {
                     Accept: 'applications/json',
