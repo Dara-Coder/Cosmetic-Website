@@ -10,86 +10,23 @@
 
     if(self)
     {
-        fetch('../Json/slider.json').then(res => res.json()).then(d => {
-            const length = d.length;
-            self.innerHTML = `<img class="w-100 h-100 animate__animated animate__fadeInRight" src="${baseUrl+d[i].image_url || ''}" alt="${d.title || ''}"/>
-            <div class="d-flex justify-content-between position-absolute w-100 h-100 top-0 set-bg-text-slider animate__animated animate__fadeInLeft">
-                <div class="d-flex align-items-center h-100 ps-2">
-                    <div class="click-slider-decrement rounded-3 border border-2 rounded-circle px-3 py-2" role="button">
-                        <i class="fa-solid fa-chevron-left fs-5 text-white"></i>
-                    </div>
-                </div>
-                <div class="d-block w-100 h-100">
-                    <div class="ms-5 bg-body bg-opacity-50 w-50 w-md-75 p-3 h-100">
-                        <p class="text-primary-emphasis fs-5 fw-bold limit-line-title">${d[i].title || ''}</p>
-                        <p class="text-success-emphasis ps-3 mt-3">${d[i].descriptions || ''}</p>
-                        <button class="btn btn-outline-dark mt-3 float-end" type="button">Explore Now</button>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center h-100 pe-3">
-                    <div class="click-slider-increment d-flex align-items-center justify-content-center rounded-3 border border-2 rounded-circle px-3 py-2" role="button">
-                        <i class="fa-solid fa-chevron-right fs-5 text-white"></i>
-                    </div>
-                </div>
-            </div>`;
-
-            clickSliderDecrement = self.querySelector('.click-slider-decrement'),
-            clickSliderIncrement = self.querySelector('.click-slider-increment'),
-            imageElement = self.querySelector('.img-slider');
-
-            if(clickSliderDecrement)
+        api.get(`${base_url}/api/front-end/banner`).then(res => {
+            if(res.status_code === 200)
             {
-                clickSliderDecrement.onclick = function(e)
-                {
-                    e.preventDefault();
-                    if(i > 0)
-                    {
-                        i--;
-                        if(imageElement)
-                            imageElement.src = (baseUrl+d[i].image_url);
-                    }
-                    else
-                    {
-                        i = (length-1);
-                        if(imageElement)
-                            imageElement.src = (baseUrl+d[i].image_url);
-                    }
-                }
-            }
+                const d = res.data || [];
 
-            if(clickSliderIncrement)
-            {
-                clickSliderIncrement.onclick = function(e)
-                {
-                    e.preventDefault();
-                    if(i < (length-1))
-                    {
-                        i = i+1;
-                        if(imageElement)
-                            imageElement.src = (baseUrl+d[i].image_url);
-                    }
-                    else
-                    {
-                        i = 0;
-                        if(imageElement)
-                            imageElement.src = (baseUrl+d[i].image_url);
-                    }
-                }
-            }
-
-            setInterval(() => {
-                if(i === length) i = 0;
-                self.innerHTML = `<img class="img-slider w-100 h-100 animate__animated animate__fadeInRight" src="${baseUrl+d[i].image_url || ''}" alt="${d.title || ''}"/>
+                const length = d.length;
+                self.innerHTML = `<img class="w-100 h-100 animate__animated animate__fadeInRight" src="${d[i].image_url || ''}" alt="${d[i].title || ''}"/>
                 <div class="d-flex justify-content-between position-absolute w-100 h-100 top-0 set-bg-text-slider animate__animated animate__fadeInLeft">
                     <div class="d-flex align-items-center h-100 ps-2">
-                        <div class="click-slider-decrement d-flex align-items-center justify-content-center rounded-3 border border-2 rounded-circle px-3 py-2" role="button">
+                        <div class="click-slider-decrement rounded-3 border border-2 rounded-circle px-3 py-2" role="button">
                             <i class="fa-solid fa-chevron-left fs-5 text-white"></i>
                         </div>
                     </div>
                     <div class="d-block w-100 h-100">
-                        <div class="ms-5 bg-body bg-opacity-50 w-50 p-3 h-100">
-                            <p class="text-primary-emphasis fs-5 fw-bold">${d[i].title || ''}</p>
-                            <p class="text-success-emphasis ps-3 mt-3 limited-description">${d[i].descriptions || ''}</p>
+                        <div class="ms-5 bg-body bg-opacity-50 w-50 w-md-75 p-3 h-100">
+                            <p class="text-primary-emphasis fs-5 fw-bold limit-line-title">${d[i].title || ''}</p>
+                            <p class="text-success-emphasis ps-3 mt-3">${d[i].description || ''}</p>
                             <button class="btn btn-outline-dark mt-3 float-end" type="button">Explore Now</button>
                         </div>
                     </div>
@@ -99,45 +36,114 @@
                         </div>
                     </div>
                 </div>`;
-                i++;
+
                 clickSliderDecrement = self.querySelector('.click-slider-decrement'),
                 clickSliderIncrement = self.querySelector('.click-slider-increment'),
                 imageElement = self.querySelector('.img-slider');
 
-                clickSliderDecrement.onclick = function(e)
+                if(clickSliderDecrement)
                 {
-                    e.preventDefault();
-                    if(i > 0)
+                    clickSliderDecrement.onclick = function(e)
                     {
-                        i--;
-                        if(imageElement)
-                            imageElement.src = baseUrl+d[i].image_url;
-                    }
-                    else
-                    {
-                        i = (length-1);
-                        if(imageElement)
-                            imageElement.src = baseUrl+d[i].image_url;
+                        e.preventDefault();
+                        if(i > 0)
+                        {
+                            i--;
+                            if(imageElement)
+                                imageElement.src = d[i].image_url;
+                        }
+                        else
+                        {
+                            i = (length-1);
+                            if(imageElement)
+                                imageElement.src = d[i].image_url;
+                        }
                     }
                 }
 
-                clickSliderIncrement.onclick = function(e)
+                if(clickSliderIncrement)
                 {
-                    e.preventDefault();
-                    if(i < (length-1))
+                    clickSliderIncrement.onclick = function(e)
                     {
-                        i++;
-                        if(imageElement)
-                            imageElement.src = (baseUrl+d[i].image_url);
-                    }
-                    else
-                    {
-                        i = 0;
-                        if(imageElement)
-                            imageElement.src = (baseUrl+d[i].image_url);
+                        e.preventDefault();
+                        if(i < (length-1))
+                        {
+                            i = i+1;
+                            if(imageElement)
+                                imageElement.src = d[i].image_url;
+                        }
+                        else
+                        {
+                            i = 0;
+                            if(imageElement)
+                                imageElement.src = d[i].image_url;
+                        }
                     }
                 }
-            },5000);
+
+                setInterval(() => {
+                    if(i === length) i = 0;
+
+                    self.innerHTML = `<img class="img-slider w-100 h-100 animate__animated animate__fadeInRight" src="${d[i].image_url || ''}" alt="${d[i].title || ''}"/>
+                    <div class="d-flex justify-content-between position-absolute w-100 h-100 top-0 set-bg-text-slider animate__animated animate__fadeInLeft">
+                        <div class="d-flex align-items-center h-100 ps-2">
+                            <div class="click-slider-decrement d-flex align-items-center justify-content-center rounded-3 border border-2 rounded-circle px-3 py-2" role="button">
+                                <i class="fa-solid fa-chevron-left fs-5 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="d-block w-100 h-100">
+                            <div class="ms-5 bg-body bg-opacity-50 w-50 p-3 h-100">
+                                <p class="text-primary-emphasis fs-5 fw-bold">${d[i].title || ''}</p>
+                                <p class="text-success-emphasis ps-3 mt-3 limited-description">${d[i].description || ''}</p>
+                                <button class="btn btn-outline-dark mt-3 float-end" type="button">Explore Now</button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center h-100 pe-3">
+                            <div class="click-slider-increment d-flex align-items-center justify-content-center rounded-3 border border-2 rounded-circle px-3 py-2" role="button">
+                                <i class="fa-solid fa-chevron-right fs-5 text-white"></i>
+                            </div>
+                        </div>
+                    </div>`;
+                    i++;
+                    clickSliderDecrement = self.querySelector('.click-slider-decrement'),
+                    clickSliderIncrement = self.querySelector('.click-slider-increment'),
+                    imageElement = self.querySelector('.img-slider');
+
+                    clickSliderDecrement.onclick = function(e)
+                    {
+                        e.preventDefault();
+                        if(i > 0)
+                        {
+                            i--;
+                            if(imageElement)
+                                imageElement.src = d[i].image_url;
+                        }
+                        else
+                        {
+                            i = (length-1);
+                            if(imageElement)
+                                imageElement.src = d[i].image_url;
+                        }
+                    }
+
+                    clickSliderIncrement.onclick = function(e)
+                    {
+                        e.preventDefault();
+                        if(i < (length-1))
+                        {
+                            i++;
+                            if(imageElement)
+                                imageElement.src = d[i].image_url;
+                        }
+                        else
+                        {
+                            i = 0;
+                            if(imageElement)
+                                imageElement.src = d[i].image_url;
+                        }
+                    }
+                },5000);
+            }
         });
     }
 })();

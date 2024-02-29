@@ -108,7 +108,6 @@ const viewProductDetail = (div,data=null) => {
     const d = data ? data.data : [];
     const previousDiv = div.previousElementSibling;
     previousDiv.style.display = 'none';
-    const baseUrl = document.location.origin;
 
     const html = `<div class="d-flex justify-content-center animate__animated animate__fadeInUp">
         <div class="product-details-view">
@@ -183,7 +182,6 @@ const viewProductDetail = (div,data=null) => {
 }
 
 const viewProductImage = (index,length,div,d=[]) => {
-    const baseUrl = window.location.origin;
     const btnDecrement = div.querySelector('.btn-slider-decrement'),
     btnIncrement = div.querySelector('.btn-slider-increment'),
     imageElement = div.querySelector('.product-image');
@@ -197,13 +195,13 @@ const viewProductImage = (index,length,div,d=[]) => {
             {
                 index--;
                 if(imageElement)
-                    imageElement.src = (baseUrl+d[index]);
+                    imageElement.src = d[index];
             }
             else
             {
                 index = (length-1);
                 if(imageElement)
-                    imageElement.src = (baseUrl+d[index]);
+                    imageElement.src = d[index];
             }
         }
     }
@@ -217,13 +215,13 @@ const viewProductImage = (index,length,div,d=[]) => {
             {
                 index++;
                 if(imageElement)
-                    imageElement.src = (baseUrl+d[index]);
+                    imageElement.src = d[index];
             }
             else
             {
                 index = 0;
                 if(imageElement)
-                    imageElement.src = (baseUrl+d[index]);
+                    imageElement.src = d[index];
             }
         }
     }
