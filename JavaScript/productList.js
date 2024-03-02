@@ -49,7 +49,6 @@ const renderProductList = (div,d=null) => {
     d = d || [];
     const previousDiv = div.previousElementSibling;
     previousDiv.style.display = 'block';
-    const baseUrl = window.location.origin;
     let html = '',
     i = 1;
 

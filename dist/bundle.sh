@@ -1,0 +1,1 @@
+Get-Content D:\Work/Cosmetic-Website/JavaScript/*.js | Set-Content D:\Work/Cosmetic-Website/dist/bundle.js
