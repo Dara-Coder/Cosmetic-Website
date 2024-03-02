@@ -1,8 +1,7 @@
 'use strict';
 (function()
 {
-    const baseUrl = window.location.origin,
-    self = document.getElementById('_slider_container');
+    const self = document.getElementById('_slider_container');
     let i = 0,
     clickSliderDecrement = null,
     clickSliderIncrement = null,

@@ -1,7 +1,6 @@
 'use strict';
 const renderRelatedProduct = (div,data=[]) => {
-    const baseUrl = window.location.origin,
-    firstContainer = div.firstChild;
+    const firstContainer = div.firstChild;
     let html = '';
 
     (data || []).forEach(re => {

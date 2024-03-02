@@ -1,8 +1,7 @@
 'use strict';
 const renderBrandList = (d=null) => {
     d = d || [];
-    const baseUrl = window.location.origin,
-    self = document.getElementById('_main_container');
+    const self = document.getElementById('_main_container');
     let html = '',
     i = 1;
 
