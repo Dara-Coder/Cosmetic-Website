@@ -1,7 +1,4 @@
 'use strict';
-
-const base_url = 'http://localhost:8000';
-
 (function()
 {
     const self = document.getElementById('_menu_container');

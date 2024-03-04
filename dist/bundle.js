@@ -35,7 +35,49 @@ class Api{
     }
 }
 
+const base_url = 'http://localhost:8000';
 const api = new Api();
+const body = document.body;
+api.get(`${base_url}/api/front-end/footer`).then(res => {
+    if(res.status_code === 200)
+    {
+        const d = res.data || {},
+        company = d.company || {},
+        social = d.social || [];
+
+        let divSocial = null;
+        body.querySelectorAll('.data-set').forEach(el => {
+            const f = el.name || el.getAttribute('name');
+            
+            if(f === 'social-media') divSocial = el;
+            if(el.tagName === 'IMG')
+            {
+                el.src = company[f] || '';
+            }
+            else
+            {
+                el.textContent = company[f] || '';
+            }
+        });
+        if(divSocial)
+        {
+            setSocialMedia(divSocial,social);
+        }
+    }
+});
+
+const setSocialMedia = (div,d=null) => {
+    d = d || [];
+    let html = '';
+    (d || []).forEach(img => {
+        html += `<div class="d-block">
+            <a href="${img.url || 'javascript:void(0)'}" target="_blank" class="text-decoration-none text-dark">
+                <img class="social-icon" src="${img.image_url || ''}" alt="facebook-logo"/>
+            </a>
+        </div>`;
+    });
+    div.innerHTML = html;
+}
 window.addEventListener('DOMContentLoaded',() => {
     fetch('https://api.ipify.org?format=json')
     .then(res => res.json())
@@ -55,9 +97,6 @@ window.addEventListener('DOMContentLoaded',() => {
     });
 });
 'use strict';
-
-const base_url = 'http://localhost:8000';
-
 (function()
 {
     const self = document.getElementById('_menu_container');
@@ -853,7 +892,7 @@ class Router
                 const d = res.data || [];
 
                 const length = d.length;
-                self.innerHTML = `<img class="w-100 h-100 animate__animated animate__fadeInRight" src="${d[i].image_url || ''}" alt="${d[i].title || ''}"/>
+                self.innerHTML = `<img class="w-100 h-100 animate__animated animate__fadeInRight" src="${d[i].image_url || ''}" alt="${d[i].title || ''}" loading="lazy"/>
                 <div class="d-flex justify-content-between position-absolute w-100 h-100 top-0 set-bg-text-slider animate__animated animate__fadeInLeft">
                     <div class="d-flex align-items-center h-100 ps-2">
                         <div class="click-slider-decrement rounded-3 border border-2 rounded-circle px-3 py-2" role="button">

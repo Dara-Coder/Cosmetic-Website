@@ -15,7 +15,7 @@
                 const d = res.data || [];
 
                 const length = d.length;
-                self.innerHTML = `<img class="w-100 h-100 animate__animated animate__fadeInRight" src="${d[i].image_url || ''}" alt="${d[i].title || ''}"/>
+                self.innerHTML = `<img class="w-100 h-100 animate__animated animate__fadeInRight" src="${d[i].image_url || ''}" alt="${d[i].title || ''}" loading="lazy"/>
                 <div class="d-flex justify-content-between position-absolute w-100 h-100 top-0 set-bg-text-slider animate__animated animate__fadeInLeft">
                     <div class="d-flex align-items-center h-100 ps-2">
                         <div class="click-slider-decrement rounded-3 border border-2 rounded-circle px-3 py-2" role="button">

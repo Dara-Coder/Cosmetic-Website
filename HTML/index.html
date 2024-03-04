@@ -10,7 +10,7 @@
     <body>
         <div class="height-top-sticky">
             <div class="d-block">
-                <img class="image-logo" src="../Images/Icons/logo.avif" alt="company-logo"/>
+                <img class="image-logo data-set" src="../Images/Icons/logo.avif" alt="company-logo" loading="lazy" name="image_url"/>
             </div>
             <div class="d-flex gap-2 h-100">
                 <div class="input-group flex-nowrap set-max-width-search">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div id="user_info" class="d-flex align-items-center gap-2 position-relative h-100 bg-white p-1 rounded-circle" role="button">
-                    <img class="user-thumbnail" src="../Images/Icons/user.png" alt="user"/>
+                    <img class="user-thumbnail" src="../Images/Icons/user.png" alt="user" loading="lazy"/>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="height-bottom-sticky">
             <div class="width-div-bottom d-flex flex-column align-items-center">
                 <div class="w-75">
-                    <img class="image-logo" src="../Images/Icons/logo.avif" alt="company-logo"/>
+                    <img class="image-logo data-set" src="../Images/Icons/logo.avif" alt="company-logo" loading="lazy" name="image_url"/>
                 </div>
                 <div class="company-description">
                     <p>
@@ -44,19 +44,19 @@
                         <span class="pe-2">
                             <i class="fa-solid fa-phone-volume text-white fs-5"></i>
                         </span>
-                        <span class="text-white">0987654321</span>
+                        <span class="text-white data-set" name="phone_number">0987654321</span>
                     </li>
                     <li>
                         <span class="pe-2">
                             <i class="fa-solid fa-location-dot text-white fs-5"></i>
                         </span>
-                        <span class="text-white">Phnom Penh</span>
+                        <span class="text-white data-set" name="address">Phnom Penh</span>
                     </li>
                     <li>
                         <span class="pe-2">
                             <i class="fa-regular fa-envelope text-white fs-5"></i>
                         </span>
-                        <span class="text-white">example@gmail.com</span>
+                        <span class="text-white data-set" name="email">example@gmail.com</span>
                     </li>
                     <li>
                         <span class="pe-2">
@@ -70,20 +70,7 @@
                 <div class="d-block">
                     <p class="fs-4 text-white">Our Social Media</p>
                 </div>
-                <div class="d-flex align-items-center gap-2 mt-3">
-                    <div class="d-block">
-                        <img class="social-icon" src="../Images/Icons/facebook.png" alt="facebook-logo"/>
-                    </div>
-                    <div class="d-block">
-                        <img class="social-icon" src="../Images/Icons/youtube.png" alt="youtube-logo"/>
-                    </div>
-                    <div class="d-block">
-                        <img class="social-icon" src="../Images/Icons/tiktok.png" alt="tiktok-logo"/>
-                    </div>
-                    <div class="d-block">
-                        <img class="social-icon" src="../Images/Icons/twitter.png" alt="twitter-logo"/>
-                    </div>
-                </div>
+                <div class="d-flex align-items-center gap-2 mt-3 data-set" name="social-media"></div>
             </div>
         </div>
         <script type="text/javascript" src="../dist/bundle.js"></script>

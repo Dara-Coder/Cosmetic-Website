@@ -28,4 +28,5 @@ class Api{
     }
 }
 
+const base_url = 'http://localhost:8000';
 const api = new Api();
