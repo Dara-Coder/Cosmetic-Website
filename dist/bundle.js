@@ -35,7 +35,7 @@ class Api{
     }
 }
 
-const base_url = 'http://localhost:8000';
+const base_url = (window.location.protocol+'//'+window.location.hostname+':8000');
 const api = new Api();
 const body = document.body;
 api.get(`${base_url}/api/front-end/footer`).then(res => {
