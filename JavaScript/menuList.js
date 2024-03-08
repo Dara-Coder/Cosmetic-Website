@@ -10,13 +10,13 @@
         {
             const d = res.data || [];
             (d || []).forEach((mn,i) => {
-                if(i<7)
+                if(i < 7)
                 {
-                    html += `<li class="product-click fs-5" data-category="${mn.category_key || 'home'}">${mn.name || ''}</li>`;
+                    html += `<li class="product-click fs-5 text-nowrap" data-category="${mn.category_key || 'home'}">${mn.name || ''}</li>`;
                 }
                 else
                 {
-                    moreMenu += `<li class="product-click fs-5" data-category="${mn.category_key || 'home'}">${mn.name || ''}</li>`;
+                    moreMenu += `<li class="product-click fs-5 text-nowrap" data-category="${mn.category_key || 'home'}">${mn.name || ''}</li>`;
                 }
             });
     
